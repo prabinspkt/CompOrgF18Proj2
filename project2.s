@@ -100,3 +100,6 @@ main:
     print_empty:
     la $a0, input_is_empty                      # load address of the string to print
     li $v0, 4
+    syscall
+    jal exit
+
