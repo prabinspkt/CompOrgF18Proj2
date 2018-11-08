@@ -89,3 +89,6 @@ main:
 
     # Start the loop again
     jal loop
+
+    # Program reaches this point after successful reading of user string and successful calculation of it's unsigned decimal value
+    loop_exit:
