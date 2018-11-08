@@ -85,3 +85,7 @@ main:
     # Calculate the value of $s0 for next round of multiplication. Current value should be multiplied by 36, if the previous char was valid and used in calculation
     li $t6, 36
     mult $s0, $t6
+    mflo $s0
+
+    # Start the loop again
+    jal loop
