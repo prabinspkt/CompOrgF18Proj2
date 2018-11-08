@@ -63,3 +63,6 @@ main:
     slti $t4, $t2, 91
     and $s5, $t1, $t4                           #if $t2 has value within range 65 and 90, $s5 will have 1, else 0
     addi $s3, $t2, -55                          # $s3 has required value used for calulation later
+    li $t7, 1
+    beq $t7, $s5, calculation                   # if $s5 already has 1, calculate the char's value from ASCII and skip other checks and branch to calculation
+
