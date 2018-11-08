@@ -73,3 +73,6 @@ main:
     addi $s3, $t2, -87
     li $t7, 1
     beq $t7, $s5, calculation                   # if $s5 already has 1, calculate the char's value from ASCII and skip other checks and branch to calculation
+
+    # If $s5 is still 0, it means that $t2 has an invalid char in base-36 system
+    beq $s5, $zero, print_invalid_value         # if $t2 has invalid value, jump to print_invalid_value
