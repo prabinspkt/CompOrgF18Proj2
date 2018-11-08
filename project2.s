@@ -46,3 +46,5 @@ main:
     lb $t2, 0($a0)                              # get ASCII value of current character
     beqz $t2, loop                              # if the value is NUL, branch to loop start
 
+    li $a1, 10                                  # load new line char in $a1
+    beq $a1, $t2, loop                          # go to loop start if it is new line char. this is useful when user input is less than 4 char. if input 3 char, 4th byte will be new line char
