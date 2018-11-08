@@ -22,3 +22,6 @@ main:
 
     #Check if the first character is new line char as well to see if string is empty
     lb $t0, 0($a0)                              # load first byte in $t0
+    li $a2, 10                                  # load new line char in $a2
+    beq $t0, $a2, print_empty                   # if 1st byte is new line char, user input is empty
+
