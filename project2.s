@@ -52,3 +52,6 @@ main:
     # Now that $t2 does not have NUL or new line char, check if the char is valid in 36-base system
     addi $t0, $zero, 47
     slt $t1, $t0, $t2
+    slti $t4, $t2, 58
+    and $s5, $t1, $t4                           # if $t2 has value within range 48 and 57, $s5 will have 1, else 0
+    addi $s3, $t2, -48                          # $s3 has required value used for calulation later
