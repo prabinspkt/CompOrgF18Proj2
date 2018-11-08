@@ -96,3 +96,7 @@ main:
     add $a0, $zero, $s1                         # load value calculated in the loop
     syscall
     jal exit
+
+    print_empty:
+    la $a0, input_is_empty                      # load address of the string to print
+    li $v0, 4
