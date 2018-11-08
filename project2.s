@@ -113,3 +113,7 @@ main:
     la $a0, input_too_long                      # load address of the string to print
     li $v0, 4                                   # load code to print string
     syscall
+
+    exit:
+    li $v0, 10                                  # load code to exit the program
+    syscall
