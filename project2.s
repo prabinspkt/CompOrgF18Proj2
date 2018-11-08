@@ -31,3 +31,10 @@ main:
     addi $a0, $a0, 4                            # $a0 points to the 5th byte now. It will point to 4th byte after it is decremented by 1 in the loop before loading byte (see below)
 
     loop:
+    # HOW DOES THIS LOOP WORK?
+    # Loop starts loading bytes from the 4th position i.e. 3rd offset
+    # Exits the loop if invalid value found
+    # Ignores NUL as user string can be less than 4 char long
+
+    # Maintain a count of numer of characters read using $s4
+    # If count is 4, branch to exit_loop (count starts from 0)
