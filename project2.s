@@ -69,3 +69,7 @@ main:
     addi $t0, $zero, 96
     slt $t1, $t0, $t2
     slti $t4, $t2, 123
+    and $s5, $t1, $t4                           #if $t2 has value within range 97 and 122, $s5 will have 1, else 0
+    addi $s3, $t2, -87
+    li $t7, 1
+    beq $t7, $s5, calculation                   # if $s5 already has 1, calculate the char's value from ASCII and skip other checks and branch to calculation
