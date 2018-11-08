@@ -57,3 +57,6 @@ main:
     addi $s3, $t2, -48                          # $s3 has required value used for calulation later
     li $t7, 1
     beq $t7, $s5, calculation                   # if $s5 already has 1, calculate the char's value from ASCII and skip other checks and branch to calculation
+
+    addi $t0, $zero, 64
+    slt $t1, $t0, $t2
