@@ -43,3 +43,6 @@ main:
     addi $s4, $s4, 1                            # update the value of counter by 1 irrespective of valid/invalid char
     addi $a0, $a0, -1                           # update the value of $a0 so that it points to an address before the previous byte
 
+    lb $t2, 0($a0)                              # get ASCII value of current character
+    beqz $t2, loop                              # if the value is NUL, branch to loop start
+
