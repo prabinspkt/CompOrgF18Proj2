@@ -76,3 +76,6 @@ main:
 
     # If $s5 is still 0, it means that $t2 has an invalid char in base-36 system
     beq $s5, $zero, print_invalid_value         # if $t2 has invalid value, jump to print_invalid_value
+
+    calculation:
+    mult $s0, $s3                               # $s0 is the required power of 36 and $s3 is the value of valid char in 36-base number system
