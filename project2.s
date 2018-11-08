@@ -38,3 +38,8 @@ main:
 
     # Maintain a count of numer of characters read using $s4
     # If count is 4, branch to exit_loop (count starts from 0)
+    li $t5, 4
+    beq $t5, $s4, loop_exit
+    addi $s4, $s4, 1                            # update the value of counter by 1 irrespective of valid/invalid char
+    addi $a0, $a0, -1                           # update the value of $a0 so that it points to an address before the previous byte
+
