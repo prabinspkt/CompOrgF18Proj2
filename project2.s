@@ -99,7 +99,7 @@ main:
 
     print_empty:
     la $a0, input_is_empty                      # load address of the string to print
-    li $v0, 4
+    li $v0, 4                                   # load code to print string
     syscall
     jal exit
 
@@ -111,5 +111,5 @@ main:
 
     print_more_than_four:
     la $a0, input_too_long                      # load address of the string to print
-    li $v0, 4
+    li $v0, 4                                   # load code to print string
     syscall
