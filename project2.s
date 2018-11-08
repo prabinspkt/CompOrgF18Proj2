@@ -25,3 +25,6 @@ main:
     li $a2, 10                                  # load new line char in $a2
     beq $t0, $a2, print_empty                   # if 1st byte is new line char, user input is empty
 
+    li $s0, 1                                   # number to multiply 36 with after each iteration of valid char
+    li $s1, 0                                   # sum number based on calculation in each iteration
+    li $s4, 0                                   # loop counter
