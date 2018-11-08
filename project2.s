@@ -12,4 +12,6 @@
 .text
 main:
 
-
+    la $a0, input_storage                       # $a0 points to the starting address of user input
+    li $v0, 8                                   # load code into $v0, $v0 is for user string input
+    syscall
