@@ -81,3 +81,7 @@ main:
     mult $s0, $s3                               # $s0 is the required power of 36 and $s3 is the value of valid char in 36-base number system
     mflo $t3
     add $s1, $s1, $t3                           # add the above multiplication to the value resulting from calculation of previous chars
+
+    # Calculate the value of $s0 for next round of multiplication. Current value should be multiplied by 36, if the previous char was valid and used in calculation
+    li $t6, 36
+    mult $s0, $t6
