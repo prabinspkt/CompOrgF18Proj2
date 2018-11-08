@@ -109,3 +109,7 @@ main:
     syscall
     jal exit
 
+    print_more_than_four:
+    la $a0, input_too_long                      # load address of the string to print
+    li $v0, 4
+    syscall
