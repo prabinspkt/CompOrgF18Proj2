@@ -19,3 +19,6 @@ main:
     #Check if input is more than 4 characters long
     lb $t0, 5($a0)                              # load the 6th byte into register $t0 , 5th byte is new line char when we use qtSpim to enter string
     bne $zero, $t0, print_more_than_four        # if 6th byte is not NUL, user input has more than 4 char
+
+    #Check if the first character is new line char as well to see if string is empty
+    lb $t0, 0($a0)                              # load first byte in $t0
