@@ -106,3 +106,6 @@ main:
     print_invalid_value:
     la $a0, invalid_number                      # load address of the string to print
     li $v0, 4                                   # load code to print string
+    syscall
+    jal exit
+
