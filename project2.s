@@ -40,6 +40,10 @@ main:
     sb $t0, 1($a1)
     lb $t0, 2($a0)
     sb $t0, 2($a1)
+    lb $t0, 3($a0)
+    sb $t0, 3($a1)
+    addi $a0, $a0, 3
+
     #Check if input is more than 4 characters long
     lb $t0, 5($a0)                              # load the 6th byte into register $t0 , 5th byte is new line char when we use qtSpim to enter string
     bne $zero, $t0, print_more_than_four        # if 6th byte is not NUL, user input has more than 4 char
