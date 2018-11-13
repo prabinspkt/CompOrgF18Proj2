@@ -86,6 +86,10 @@ main:
     li $s7, 32 # space
     beq $t2, $s7, handle_space # if space if found, let handle_space take care of what to do
 
+    # if program reaches this point, it means that a non-NUL, non-new-line-char or non-space char is found
+    # update $s6 to 1. if a space if found after $s6 has been updated to 1, jump to print_invalid
+    li $s6, 1
+
     # Now that $t2 does not have NUL or new line char, check if the char is valid in 36-base system
     addi $t0, $zero, 47
     slt $t1, $t0, $t2
