@@ -91,7 +91,7 @@ main:
     li $s6, 1
 
     # Now that $t2 does not have NUL or new line char, check if the char is valid in 36-base system
-    addi $t0, $zero, 47
+    li $t0, 47
     slt $t1, $t0, $t2
     slti $t4, $t2, 58
     and $s5, $t1, $t4                           # if $t2 has value within range 48 and 57, $s5 will have 1, else 0
@@ -99,7 +99,7 @@ main:
     li $t7, 1
     beq $t7, $s5, calculation                   # if $s5 already has 1, calculate the char's value from ASCII and skip other checks and branch to calculation
 
-    addi $t0, $zero, 64
+    li $t0, 64
     slt $t1, $t0, $t2
     slti $t4, $t2, 91
     and $s5, $t1, $t4                           #if $t2 has value within range 65 and 90, $s5 will have 1, else 0
@@ -107,7 +107,7 @@ main:
     li $t7, 1
     beq $t7, $s5, calculation                   # if $s5 already has 1, calculate the char's value from ASCII and skip other checks and branch to calculation
 
-    addi $t0, $zero, 96
+    li $t0, 96
     slt $t1, $t0, $t2
     slti $t4, $t2, 123
     and $s5, $t1, $t4                           #if $t2 has value within range 97 and 122, $s5 will have 1, else 0
