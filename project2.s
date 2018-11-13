@@ -131,6 +131,10 @@ main:
     # Start the loop again
     jal loop
 
+    handle_space:
+    beq $zero, $s6, loop # if no non-NUL, non-space or non-new-line char found yet, simply branch to loop
+    jal print_invalid_value # if non-NUL, non-space or non-new-line char was found already and a space if found again, jump to print_invalid_value
+
     # Program reaches this point after successful reading of user string and successful calculation of it's unsigned decimal value
     loop_exit:
     li $v0, 1                                   # load code to print integer
