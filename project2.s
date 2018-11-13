@@ -48,6 +48,10 @@ main:
     addi $a0, $a0, 1
     jal filter_loop
 
+    exit_filter_loop:
+    # if $s2 is still 0, it means that either the user input is empty or the has only spaces
+    beqz $s2, print_empty
+
     #Check if input is more than 4 characters long
     lb $t0, 5($a0)                              # load the 6th byte into register $t0 , 5th byte is new line char when we use qtSpim to enter string
     bne $zero, $t0, print_more_than_four        # if 6th byte is not NUL, user input has more than 4 char
