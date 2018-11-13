@@ -83,6 +83,9 @@ main:
     li $a1, 10                                  # load new line char in $a1
     beq $a1, $t2, loop                          # go to loop start if it is new line char. this is useful when user input is less than 4 char. if input 3 char, 4th byte will be new line char
 
+    li $s7, 32 # space
+    beq $t2, $s7, handle_space # if space if found, let handle_space take care of what to do
+
     # Now that $t2 does not have NUL or new line char, check if the char is valid in 36-base system
     addi $t0, $zero, 47
     slt $t1, $t0, $t2
