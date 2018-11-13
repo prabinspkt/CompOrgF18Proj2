@@ -60,6 +60,8 @@ main:
     li $s0, 1                                   # number to multiply 36 with after each iteration of valid char
     li $s1, 0                                   # sum number based on calculation in each iteration
     li $s4, 0                                   # loop counter
+    li $s6, 0                                   # will be updated to 1 when a non-space, non-NUL or non-new-line-char is found. If this is already 1 and space is found, jump to print_invalid_value
+    la $a0, filtered_input
     addi $a0, $a0, 4                            # $a0 points to the 5th byte now. It will point to 4th byte after it is decremented by 1 in the loop before loading byte (see below)
 
     loop:
