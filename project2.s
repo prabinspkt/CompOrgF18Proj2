@@ -29,6 +29,10 @@ main:
     lb $t0, 0($a0) # load byte from $a0, $a0 is updated in the loop
     beq $t0, $t1, exit_filter_loop # exit when new line char found
     beq $t0, $t2, skip # if space is found, skip to check another byte
+    beqz $t0, exit_filter_loop # exit loop when NUL is found
+    # if program reaches this point, it has skipped spaces and found a non-space, non-NUL or non-new-line-char
+    # If non-space, non-new-line-char or non-NUL char found, put this and next three bytes in filtered_input
+    bne $s2, $zero, print_more_than_four
     #Check if input is more than 4 characters long
     lb $t0, 5($a0)                              # load the 6th byte into register $t0 , 5th byte is new line char when we use qtSpim to enter string
     bne $zero, $t0, print_more_than_four        # if 6th byte is not NUL, user input has more than 4 char
