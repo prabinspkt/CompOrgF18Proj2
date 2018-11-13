@@ -36,6 +36,10 @@ main:
     li $s2, 1 # once program reaches this point, 1 is loaded into $s2
     la $a1, filtered_input # load address of filtered_input
     sb $t0, 0($a1)
+    lb $t0, 1($a0)
+    sb $t0, 1($a1)
+    lb $t0, 2($a0)
+    sb $t0, 2($a1)
     #Check if input is more than 4 characters long
     lb $t0, 5($a0)                              # load the 6th byte into register $t0 , 5th byte is new line char when we use qtSpim to enter string
     bne $zero, $t0, print_more_than_four        # if 6th byte is not NUL, user input has more than 4 char
