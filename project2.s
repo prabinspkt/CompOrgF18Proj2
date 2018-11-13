@@ -7,7 +7,9 @@
     invalid_number:
     .asciiz "Invalid base-36 number."
     input_storage:
-    .space 8                                    # reserves space for 8 bytes in memory for user_string
+    .space 2000                                 # reserves space memory for user input string
+    filtered_input:                             # allocate 4 bytes for filtered out string that doesn't have white spaces
+    .space 4
 
 .text
 main:
