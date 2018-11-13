@@ -18,6 +18,10 @@ main:
     li $v0, 8                                   # load code into $v0, $v0 is for user string input
     syscall
 
+    # Use a loop to extract string and exclude white spaces
+
+    li $s2, 0 # s2 is updated to 1 if a non-NUL, non-space or non-new-line-char if found once
+    # the idea is that if these types of characters are found again after loading 4 bytes, the user input is more than four chars
     #Check if input is more than 4 characters long
     lb $t0, 5($a0)                              # load the 6th byte into register $t0 , 5th byte is new line char when we use qtSpim to enter string
     bne $zero, $t0, print_more_than_four        # if 6th byte is not NUL, user input has more than 4 char
