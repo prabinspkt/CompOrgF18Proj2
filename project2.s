@@ -25,6 +25,10 @@ main:
     li $t1, 10 # new line char
     li $t2, 32 # space char
 
+    filter_loop:
+    lb $t0, 0($a0) # load byte from $a0, $a0 is updated in the loop
+    beq $t0, $t1, exit_filter_loop # exit when new line char found
+    beq $t0, $t2, skip # if space is found, skip to check another byte
     #Check if input is more than 4 characters long
     lb $t0, 5($a0)                              # load the 6th byte into register $t0 , 5th byte is new line char when we use qtSpim to enter string
     bne $zero, $t0, print_more_than_four        # if 6th byte is not NUL, user input has more than 4 char
