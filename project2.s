@@ -33,6 +33,9 @@ main:
     # if program reaches this point, it has skipped spaces and found a non-space, non-NUL or non-new-line-char
     # If non-space, non-new-line-char or non-NUL char found, put this and next three bytes in filtered_input
     bne $s2, $zero, print_more_than_four
+    li $s2, 1 # once program reaches this point, 1 is loaded into $s2
+    la $a1, filtered_input # load address of filtered_input
+    sb $t0, 0($a1)
     #Check if input is more than 4 characters long
     lb $t0, 5($a0)                              # load the 6th byte into register $t0 , 5th byte is new line char when we use qtSpim to enter string
     bne $zero, $t0, print_more_than_four        # if 6th byte is not NUL, user input has more than 4 char
